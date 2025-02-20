@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Connexion</h1>
+    <form method="POST">
+        Utilisateur: <input name="username" type="text"><br>
+        Mot de passe: <input name="password" type="password"><br>
+        <input type="submit" value="Se connecter">
+    </form>
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+</div>
+</body>
+</html>

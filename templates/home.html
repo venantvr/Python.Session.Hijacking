@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Bienvenue {{ username }}</h1>
+    <p>Votre Session ID: {{ session_id }}</p>
+    <a href="/secret">Voir votre secret</a>
+    <a href="/logout">Déconnexion</a>
+</div>
+</body>
+</html>

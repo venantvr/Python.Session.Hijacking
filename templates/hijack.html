@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Hijacking</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Session Hijacking</h1>
+    <p>Entrez le Session ID volé :</p>
+    <input id="session_id" placeholder="Collez le Session ID ici" type="text"><br><br>
+    <button onclick="hijackSession()">Hijacker la session</button>
+    <p id="error"></p>
+</div>
+
+<script>
+    function hijackSession() {
+        const sessionId = document.getElementById('session_id').value.trim();
+        if (!sessionId) {
+            document.getElementById('error').innerText = 'Veuillez entrer un Session ID';
+            return;
+        }
+        document.cookie = `session=${encodeURIComponent(sessionId)}; path=/`;
+        window.location.href = '/secret';
+    }
+</script>
+</body>
+</html>
